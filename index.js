@@ -89,108 +89,52 @@ const promptUser = () => {
             name: 'email',
           },
     
-    ])
-    // .then((response) => {
+    ]).then((response) => {
     // //         // let licenseBadge
     // //         // let licenseURL
     //         generateMd(response);
-    //         fs.appendFile('readme.md', generateMd, (err) =>{
-    //             err ? console.error(err) : console.log('Success!')
-    //         })
-    // });
+    const generateMd =  `
+ #${response.title}
+
+## Table of Contents
+*[Descripton](#description)
+*[Installation](#installation)
+*[Usage](#usage)
+*[License](#license)
+*[Contributors](#contributors)
+*[Tests](#tests)
+*[Questions](#questions)
+
+##Descripton
+${response.description}
+
+## Installation
+${response.installation}
+
+## Usage
+${response.usage}
+
+## License
+[![License: ${response.license}
+ ($licenseBadge)]
+($licenseUrl)
+
+## Contributors
+${response.contributors}
+
+## Tests
+${response.testing}
+
+## Questions
+Please see my gihub: [Github Profile](https://github.com/${response.github})
+
+You can also contact me at: ${response.email} for questions.
+`
+
+ fs.appendFile("readme.md", generateMd, (err) =>{
+                err ? console.error(err) : console.log('Success!')
+            })
+    });
 };
-// const generateMd = (response) => { `
-// #${response.title}
 
-// ## Table of Contents
-// *[Descripton](#description)
-// *[Installation](#installation)
-// *[Usage](#usage)
-// *[License](#license)
-// *[Contributors](#contributors)
-// *[Tests](#tests)
-// *[Questions](#questions)
-
-// ##Descripton
-// ${response.description}
-
-// ## Installation
-// ${response.installation}
-
-// ## Usage
-// ${response.usage}
-
-// ## License
-// [![License: ${response.license}
-//     ($licenseBadge)
-// ]
-//     ($licenseUrl)
-
-// ## Contributors
-// ${response.contributors}
-
-// ## Tests
-// ${response.testing}
-
-// ## Questions
-// Please see my gihub: [Github Profile](https://github.com/${response.github})
-// <br></br>
-// You can also contact me at: ${response.email} for questions.
-// `
-// };
-
-// const init = () => {
-    // promptUser()
-//     .then((response) => {
-//     //         // let licenseBadge
-//     //         // let licenseURL
-
-//     //         const md = generateMd(response);
-//     const generateMd = (response) => { `
-// #${response.title}
-
-// ## Table of Contents
-// *[Descripton](#description)
-// *[Installation](#installation)
-// *[Usage](#usage)
-// *[License](#license)
-// *[Contributors](#contributors)
-// *[Tests](#tests)
-// *[Questions](#questions)
-
-// ##Descripton
-// ${response.description}
-
-// ## Installation
-// ${response.installation}
-
-// ## Usage
-// ${response.usage}
-
-// ## License
-// [![License: ${response.license}
-//     ($licenseBadge)
-// ]
-//     ($licenseUrl)
-
-// ## Contributors
-// ${response.contributors}
-
-// ## Tests
-// ${response.testing}
-
-// ## Questions
-// Please see my gihub: [Github Profile](https://github.com/${response.github})
-// <br></br>
-// You can also contact me at: ${response.email} for questions.
-// `
-// };
-//             fs.appendFile('readme.md', generateMd, (err) =>{
-              
-//            err ? console.error(err) : console.log('Success!')
-//             })
-
-
-//     });
-// };
 promptUser();
