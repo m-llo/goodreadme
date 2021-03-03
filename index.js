@@ -1,44 +1,6 @@
 const fs = require('fs')
 const inquirer = require('inquirer')
-const generateMd = () => { `
-#${response.title}
 
-## Table of Contents
-*[Descripton](#description)
-*[Installation](#installation)
-*[Usage](#usage)
-*[License](#license)
-*[Contributors](#contributors)
-*[Tests](#tests)
-*[Questions](#questions)
-
-##Descripton
-${response.description}
-
-## Installation
-${response.installation}
-
-## Usage
-${response.usage}
-
-## License
-[![License: ${response.license}
-    ($licenseBadge)
-]
-    ($licenseUrl)
-
-## Contributors
-${response.contributors}
-
-## Tests
-${response.testing}
-
-## Questions
-Please see my gihub: [Github Profile](https://github.com/${response.github})
-<br></br>
-You can also contact me at: ${response.email} for questions.
-`
-};
 const promptUser = () => {
     inquirer
     .prompt ([
@@ -64,9 +26,10 @@ const promptUser = () => {
           },
           {
             // dropdown list of licenses, Apache license 2.0, IBM, MIT, ISC, NONE
-            type: 'input',
+            type: 'list',
             message: 'What license was used for this application?',
             name: 'license',
+            choices: ['None', 'GNU General', 'Apache license 2.0', 'MIT', 'Open', 'Other'],
           },
           {
             type: 'input',
@@ -93,8 +56,13 @@ const promptUser = () => {
     // //         // let licenseBadge
     // //         // let licenseURL
     //         generateMd(response);
+    // let licenseBadge = () =>{
+    //     if
+
+
+    // };
     const generateMd =  `
- #${response.title}
+ # ${response.title}
 
 ## Table of Contents
 *[Descripton](#description)
@@ -105,7 +73,7 @@ const promptUser = () => {
 *[Tests](#tests)
 *[Questions](#questions)
 
-##Descripton
+## Descripton
 ${response.description}
 
 ## Installation
