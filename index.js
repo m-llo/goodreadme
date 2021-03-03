@@ -29,7 +29,7 @@ const promptUser = () => {
             type: 'list',
             message: 'What license was used for this application?',
             name: 'license',
-            choices: ['None', 'GNU General', 'Apache license 2.0', 'MIT', 'Open', 'Other'],
+            choices: ['None', 'GNU General v2', 'Apache license 2.0', 'MIT','IBM', 'Open Data'],
           },
           {
             type: 'input',
@@ -38,7 +38,7 @@ const promptUser = () => {
           },
           {
             type: 'input',
-            message: 'What are the test instructions for this applicatoin?',
+            message: 'What are the test instructions for this application?',
             name: 'testing',
           },
           {
@@ -52,17 +52,41 @@ const promptUser = () => {
             name: 'email',
           },
     
-    ]).then((response) => {
-    // //         // let licenseBadge
-    // //         // let licenseURL
-    //         generateMd(response);
-    // let licenseBadge = () =>{
-    //     if
-
-
-    // };
+    ]).then((data) => {
+    const input = data.license
+    let licenseBadge = () =>{
+        console.log(input)
+        if (typeof input === 'string'){
+            switch (input) {
+                case 'Apache license 2.0':
+                response = '[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+                break;
+                case 'GNU General v2':
+                response = '[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)'
+                break;
+                case 'MIT':
+                response = '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)'
+                break;
+                case 'IBM':
+                response = '[![License: IPL 1.0](https://img.shields.io/badge/License-IPL%201.0-blue.svg)](https://opensource.org/licenses/IPL-1.0)'
+                break;
+                case 'Open Data':
+                response = '[![License: Open Data Commons Attribution](https://img.shields.io/badge/License-ODC_BY-brightgreen.svg)](https://opendatacommons.org/licenses/by/)'
+                break;
+                case 'None':
+                response = ' '
+                break;
+                default :
+                response = ' '
+                break;
+            }
+            return response;
+        };
+    };
+    licenseBadge();
+    
     const generateMd =  `
- # ${response.title}
+ # ${data.title}
 
 ## Table of Contents
 *[Descripton](#description)
@@ -74,29 +98,29 @@ const promptUser = () => {
 *[Questions](#questions)
 
 ## Descripton
-${response.description}
+${data.description}
 
 ## Installation
-${response.installation}
+${data.installation}
 
 ## Usage
-${response.usage}
+${data.usage}
 
 ## License
-[![License: ${response.license}
- ($licenseBadge)]
-($licenseUrl)
+License: ${data.license}
+${response}
+
 
 ## Contributors
-${response.contributors}
+${data.contributors}
 
 ## Tests
-${response.testing}
+${data.testing}
 
 ## Questions
-Please see my gihub: [Github Profile](https://github.com/${response.github})
+Please see my gihub: [Github Profile](https://github.com/${data.github})
 
-You can also contact me at: ${response.email} for questions.
+You can also contact me at: ${data.email} for questions.
 `
 
  fs.appendFile("readme.md", generateMd, (err) =>{
