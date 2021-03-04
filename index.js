@@ -25,7 +25,6 @@ const promptUser = () => {
             name: 'usage',
           },
           {
-            // dropdown list of licenses, Apache license 2.0, IBM, MIT, ISC, NONE
             type: 'list',
             message: 'What license was used for this application?',
             name: 'license',
@@ -55,7 +54,6 @@ const promptUser = () => {
     ]).then((data) => {
     const input = data.license
     let licenseBadge = () =>{
-        console.log(input)
         if (typeof input === 'string'){
             switch (input) {
                 case 'Apache license 2.0':
@@ -87,6 +85,7 @@ const promptUser = () => {
     
     const generateMd =  `
  # ${data.title}
+   ${response}
 
 ## Table of Contents
 *[Descripton](#description)
@@ -107,7 +106,7 @@ ${data.installation}
 ${data.usage}
 
 ## License
-License: ${data.license}
+License: The following license was used in this project: ${data.license}
 ${response}
 
 
@@ -123,7 +122,7 @@ Please see my gihub: [Github Profile](https://github.com/${data.github})
 You can also contact me at: ${data.email} for questions.
 `
 
- fs.appendFile("readme.md", generateMd, (err) =>{
+ fs.appendFile("README.md", generateMd, (err) =>{
                 err ? console.error(err) : console.log('Success!')
             })
     });
