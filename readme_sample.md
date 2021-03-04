@@ -22,8 +22,8 @@ This project is to help users create a high-quality readme for thier projects.
 From the Terminal
 
 ## License
-License: None
- 
+License: MIT
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Contributors
 None
 
