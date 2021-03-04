@@ -45,8 +45,6 @@ THEN I am taken to the corresponding section of the README
 
 
 ## Walk Through Video
-<iframe src="https://drive.google.com/file/d/18d4Pd04H2i3D18LhXe2cSfutMQeWC0S3/preview" width="640" height="480"></iframe>
-
 [Google Drive Link](https://drive.google.com/file/d/18d4Pd04H2i3D18LhXe2cSfutMQeWC0S3/view)
 
 

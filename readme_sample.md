@@ -40,6 +40,4 @@ You can also contact me at: markalloyd21@gmail.com for questions.
 
 ## Video
 
-<iframe src="https://drive.google.com/file/d/18d4Pd04H2i3D18LhXe2cSfutMQeWC0S3/preview" width="640" height="480"></iframe>
-
 [Google Drive Link](https://drive.google.com/file/d/18d4Pd04H2i3D18LhXe2cSfutMQeWC0S3/view)
